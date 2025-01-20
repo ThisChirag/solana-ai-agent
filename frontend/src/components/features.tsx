@@ -1,4 +1,10 @@
 import { Code, Terminal, GraduationCap, MessageSquare, Zap, Shield } from "lucide-react";
+import {
+  Popover,
+  PopoverContent,
+  PopoverTrigger,
+} from "./ui/popover";
+import { Button } from "./ui/button";
 
 interface Feature {
   name: string;
@@ -6,6 +12,23 @@ interface Feature {
   icon: React.FC<{ className?: string }>;
   gradient: string;
 }
+
+interface Showcase {
+  title: string;
+  examples: string[];
+}
+
+const showcase: Showcase = {
+  title: "What can you ask?",
+  examples: [
+    "How do I create an NFT marketplace contract?",
+    "Explain Solana's account model",
+    "Help me deploy my program using Solana Playground",
+    "What are PDAs and when should I use them?",
+    "Debug my token swap program",
+    "Show me how to implement cross-program invocation"
+  ]
+};
 
 const features: Feature[] = [
   {
@@ -60,6 +83,27 @@ export const Features = () => {
           <p className="mt-6 text-lg leading-8 text-gray-600">
             Chat with an AI that understands Solana Playground inside out. From basic concepts to complex smart contracts, get expert assistance in seconds.
           </p>
+          <div className="mt-4">
+            <Popover>
+              <PopoverTrigger asChild>
+                <Button variant="outline" className="border-[#9945FF] text-[#9945FF] hover:bg-[#9945FF] hover:text-white">
+                  What can you ask?
+                </Button>
+              </PopoverTrigger>
+              <PopoverContent className="w-80">
+                <div className="space-y-4">
+                  <h3 className="font-medium text-lg">{showcase.title}</h3>
+                  <ul className="space-y-2">
+                    {showcase.examples.map((example: string, i: number) => (
+                      <li key={i} className="text-sm text-gray-600 hover:text-[#9945FF] cursor-pointer transition-colors">
+                        • {example}
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </PopoverContent>
+            </Popover>
+          </div>
         </div>
       </div>
       <div className="relative overflow-hidden pt-16">
