@@ -1,24 +1,14 @@
-type People = {
+type Project = {
   name: string;
   imageUrl: string;
   link: string;
 };
 
-const people: People[] = [
+const projects: Project[] = [
   {
-    name: "Sargam Poudel",
-    imageUrl: "https://avatars.githubusercontent.com/u/76874341?v=4",
-    link: "https://github.com/devsargam",
-  },
-  {
-    name: "Dipendra Bhatta",
-    imageUrl: "https://avatars.githubusercontent.com/u/103090861?v=4",
-    link: "https://github.com/dipenbhat557",
-  },
-  {
-    name: "Sujith",
-    imageUrl: "https://avatars.githubusercontent.com/u/108384868?v=4",
-    link: "https://github.com/SujithThirumalaisamy",
+    name: "Solana-Playground",
+    imageUrl: "https://res.coinpaper.com/coinpaper/solana_sol_logo_28f7fb0af5.svg",
+    link: "https://github.com/solana-playground/solana-playground",
   },
 ];
 
@@ -40,50 +30,50 @@ export const Team = () => {
       <div className="mx-auto grid max-w-7xl gap-x-8 gap-y-20 px-6 lg:px-8 xl:grid-cols-3">
         <div className="max-w-2xl">
           <h2 className="text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl ">
-            Meet Team{" "}
             <span className="relative inline-block">
               <span
-                className="bg-gradient-to-r from-yellow-400 via-orange-400 to-yellow-400 bg-clip-text text-transparent blur-md"
+                className="bg-gradient-to-r from-[#9945FF] via-[#8752F3] to-[#14F195] bg-clip-text text-transparent blur-md"
                 aria-hidden="true"
               >
-                Kraken
+                Solana Playground
               </span>
-              <span className="absolute inset-0 bg-gradient-to-r from-yellow-400 via-orange-400 to-yellow-400 bg-clip-text text-transparent">
-                Kraken
+              <span 
+                className="absolute inset-0 bg-gradient-to-r from-[#9945FF] via-[#8752F3] to-[#14F195] bg-clip-text text-transparent"
+              >
+                Solana Playground
               </span>
             </span>
           </h2>
           <p className="mt-6 text-lg leading-8 text-gray-600">
-            We are team Kraken. We build Saas projects using latest and finest
-            technologies
+          Quickly develop, deploy and test Solana programs from browsers
           </p>
         </div>
         <ul
           role="list"
           className="grid gap-x-8 gap-y-12 sm:grid-cols-2 sm:gap-y-16 xl:col-span-2"
         >
-          {people.map((person) => (
-            <li key={person.name}>
+          {projects.map((project) => (
+            <li key={project.name}>
               <div className="flex items-center justify-center gap-x-6">
                 <img
                   className="h-16 w-16 rounded-full"
-                  src={person?.imageUrl}
+                  src={project?.imageUrl}
                   alt=""
                 />
                 <div>
                   <h3 className="text-base font-semibold leading-7 tracking-tight text-gray-900">
-                    {person.name}
+                    {project.name}
                   </h3>
                   {/* <p className="text-sm font-semibold leading-6 text-gray-600">
                     {person.role}
                   </p> */}
                   <div className="mt-2">
                     <a
-                      href={person?.link}
+                      href={project?.link}
                       target="_blank"
                       className="text-md font-semibold text-green-600 hover:underline"
                     >
-                      Github Profile &rarr;
+                      Github Repository &rarr;
                     </a>
                   </div>
                 </div>

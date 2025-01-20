@@ -6,11 +6,13 @@ import { Loader2, Send } from "lucide-react";
 import { useState } from "react";
 import { SingleChat } from "../common/single-chat";
 import { BotThinking } from "../common/bot-thinking";
+import { getUserInfoFromToken } from "@/lib/utils";
+import { nanoid } from "nanoid";
 
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-ignore
 const defaultProfile =
-  "https://t4.ftcdn.net/jpg/02/29/75/83/360_F_229758328_7x8jwCwjtBMmC6rgFzLFhZoEpLobB6L8.jpg";
+  "https://pbs.twimg.com/profile_images/1859708298813112322/YBJh2Mf4_400x400.jpg";
 
 interface IMessage {
   content: string;
@@ -23,9 +25,12 @@ export function Chat() {
   const [messages, setMessages] = useState<IMessage[]>([
     {
       author: "bot",
-      content: "Hello! How can I help you today?",
+      content: "Hello stranger, How can I help you???",
     },
   ]);
+
+  const user = getUserInfoFromToken();
+  const usernameFallback = nanoid();
 
   const handleClick = async () => {
     if (!query) return;
@@ -44,7 +49,8 @@ export function Chat() {
         "Content-Type": "application/json",
       },
       body: JSON.stringify({
-        question: query
+        question: query,
+        username: user?.name ?? usernameFallback,
       }),
     };
 
@@ -59,7 +65,6 @@ export function Chat() {
       setQuery("");
     } catch (e) {
       console.log(e);
-      setGenerating(false);
     }
   };
 
@@ -83,8 +88,8 @@ export function Chat() {
               {messages.map((msg, i) => (
                 <SingleChat
                   {...msg}
-                  image={defaultProfile}
-                  firstName="Anonymous"
+                  image={user?.profile ? user.profile : defaultProfile}
+                  firstName={user?.name ?? usernameFallback}
                   key={i}
                 />
               ))}

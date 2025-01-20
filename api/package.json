@@ -16,6 +16,7 @@
     "@langchain/qdrant": "^0.1.1",
     "@prisma/client": "^5.22.0",
     "@qdrant/js-client-rest": "^1.12.0",
+    "@uiw/react-textarea-code-editor": "^3.1.0",
     "body-parser": "^1.20.3",
     "cors": "^2.8.5",
     "dotenv": "^16.4.5",
@@ -23,7 +24,8 @@
     "jsonwebtoken": "^9.0.2",
     "passport": "^0.7.0",
     "passport-github": "^1.1.0",
-    "prompts": "link:@langchain/core/prompts"
+    "prompts": "link:@langchain/core/prompts",
+    "react-syntax-highlighter": "^15.6.1"
   },
   "devDependencies": {
     "@types/cors": "^2.8.17",

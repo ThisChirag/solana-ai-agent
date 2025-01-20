@@ -21,7 +21,7 @@ export const NavBar = () => {
                 }/auth/github`)
               }
             >
-              Sign In
+              Sign In (Disabled)
             </Button>
           </div>
         </div>

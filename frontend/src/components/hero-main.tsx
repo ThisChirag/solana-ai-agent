@@ -18,16 +18,15 @@ export function MainHero() {
       <div className="mx-auto max-w-2xl py-16 sm:py-24 lg:py-32">
         <div className="hidden sm:mb-8 sm:flex sm:justify-center">
           <div className="relative rounded-full px-3 py-1 text-sm leading-6 text-gray-600 ring-1 ring-gray-900/10 hover:ring-gray-900/20">
-            Sol Ai Agent
+          Solana PG Assistant
           </div>
         </div>
         <div className="text-center">
           <h1 className="text-4xl font-bold tracking-tight text-gray-900 sm:text-6xl">
-            Sol Ai Agent
+          Solana PG Assistant
           </h1>
           <p className="mt-6 text-lg leading-8 text-gray-600">
-            Under the hood, AI Form Helper uses OpenAI based RAG approach to
-            deliver you requested response in no time!!!
+          Get instant answers, generate smart contracts, and master Solana development through natural conversations right in your browser
           </p>
           <div className="mt-10 flex items-center justify-center gap-x-6">
             <a href="/chat">

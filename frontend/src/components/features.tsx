@@ -1,22 +1,49 @@
-import { Book, GlobeLock, Network } from "lucide-react";
+import { Code, Terminal, GraduationCap, MessageSquare, Zap, Shield } from "lucide-react";
 
-const features = [
+interface Feature {
+  name: string;
+  description: string;
+  icon: React.FC<{ className?: string }>;
+  gradient: string;
+}
+
+const features: Feature[] = [
   {
-    name: "Complete Forms Easily.",
-    description:
-      "We have built chatbot  to help you understand the forms better.",
-    icon: Network,
+    name: "Smart Contract Generation",
+    description: "Transform your ideas into Solana programs through simple conversation. Describe what you want to build and get production-ready Rust code.",
+    icon: Code,
+    gradient: "from-[#9945FF] to-[#14F195]"
   },
   {
-    name: "Context Based Answer.",
-    description: "We help you with relivant data to fill in places you need",
-    icon: Book,
+    name: "Playground Expert",
+    description: "Learn how to make the most of Solana Playground's features. Get guidance on program development, testing, and deployment.",
+    icon: Terminal,
+    gradient: "from-[#14F195] to-[#9945FF]"
   },
   {
-    name: "Privacy Friendly.",
-    description: "Your chats are secured by us. No need to worry",
-    icon: GlobeLock,
+    name: "Interactive Learning",
+    description: "Master Solana concepts, Rust, and blockchain fundamentals through natural dialogue. Perfect for both beginners and experienced developers.",
+    icon: GraduationCap,
+    gradient: "from-[#8752F3] to-[#14F195]"
   },
+  {
+    name: "Code Companion",
+    description: "Get instant help with code reviews, debugging, and optimization. Understand best practices and avoid common pitfalls.",
+    icon: MessageSquare,
+    gradient: "from-[#14F195] to-[#8752F3]"
+  },
+  {
+    name: "Quick Answers",
+    description: "Stuck on a problem? Get immediate, context-aware responses about Solana development, from account models to PDAs.",
+    icon: Zap,
+    gradient: "from-[#9945FF] to-[#8752F3]"
+  },
+  {
+    name: "Development Guide",
+    description: "Follow best practices in security, performance, and code structure with AI-powered recommendations.",
+    icon: Shield,
+    gradient: "from-[#8752F3] to-[#9945FF]"
+  }
 ];
 
 export const Features = () => {
@@ -24,22 +51,21 @@ export const Features = () => {
     <div className="bg-white py-4 sm:py-8">
       <div className="mx-auto max-w-7xl px-6 lg:px-8">
         <div className="mx-auto max-w-2xl sm:text-center">
-          <h2 className="text-base font-semibold leading-7 text-gray-600">
+          <h2 className="text-base font-semibold leading-7 text-[#9945FF]">
             Everything you need
           </h2>
           <p className="mt-2 text-3xl font-bold tracking-tight text-gray-900 sm:text-4xl">
-            No proper guidance while filling out forms? No problem.
+            Need help with Solana development? Ask anything.
           </p>
           <p className="mt-6 text-lg leading-8 text-gray-600">
-            We help you autocomplete forms in a structured way. Just place your
-            input and everything is on us
+            Chat with an AI that understands Solana Playground inside out. From basic concepts to complex smart contracts, get expert assistance in seconds.
           </p>
         </div>
       </div>
       <div className="relative overflow-hidden pt-16">
         <div className="mx-auto max-w-7xl px-6 lg:px-8">
           <img
-            src="/demo.png"
+            src="/Solana-Playground.png"
             alt="App screenshot"
             className="mb-[-12%] rounded-xl shadow-2xl ring-1 ring-gray-900/10"
             width={2432}
@@ -51,20 +77,27 @@ export const Features = () => {
         </div>
       </div>
       <div className="mx-auto mt-16 max-w-7xl px-6 sm:mt-20 md:mt-24 lg:px-8">
-        <dl className="mx-auto grid max-w-2xl grid-cols-1 gap-x-6 gap-y-10 text-base leading-7 text-gray-600 sm:grid-cols-2 lg:mx-0 lg:max-w-none lg:grid-cols-3 lg:gap-x-8 lg:gap-y-16">
+        <div className="grid max-w-xl grid-cols-1 gap-x-8 gap-y-10 lg:max-w-none lg:grid-cols-3 lg:gap-y-16">
           {features.map((feature) => (
-            <div key={feature.name} className="relative pl-9">
-              <dt className="inline font-semibold text-gray-900">
-                <feature.icon
-                  className="absolute left-1 top-1 h-5 w-5 text-gray-600"
-                  aria-hidden="true"
-                />
-                {feature.name}
-              </dt>{" "}
-              <dd className="inline">{feature.description}</dd>
+            <div 
+              key={feature.name}
+              className="relative group p-6 rounded-2xl transition-all duration-300 hover:shadow-lg hover:-translate-y-1 bg-white border border-gray-200"
+            >
+              <div className={`absolute inset-0 rounded-2xl bg-gradient-to-r ${feature.gradient} opacity-0 group-hover:opacity-5 transition-opacity duration-300`} />
+              <div className="relative">
+                <div className={`inline-flex p-3 rounded-lg bg-gradient-to-r ${feature.gradient}`}>
+                  <feature.icon className="h-6 w-6 text-white" aria-hidden="true" />
+                </div>
+                <h3 className="mt-4 text-lg font-semibold leading-7 text-gray-900">
+                  {feature.name}
+                </h3>
+                <p className="mt-2 text-base leading-7 text-gray-600">
+                  {feature.description}
+                </p>
+              </div>
             </div>
           ))}
-        </dl>
+        </div>
       </div>
     </div>
   );
