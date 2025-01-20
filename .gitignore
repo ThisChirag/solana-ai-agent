@@ -1,0 +1,14 @@
+**/.env
+**/node_modules
+
+node_modules
+.env
+dist
+.env.*
+
+content
+docs
+
+.DS_Store
+embeddings-generator/files/**
+embeddings-generator/embeddings.csv
