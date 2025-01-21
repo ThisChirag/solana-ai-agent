@@ -30,7 +30,7 @@ export function Chat() {
   ]);
 
   const user = getUserInfoFromToken();
-  const usernameFallback = nanoid();
+  const usernameFallback = "Solana Developer";
 
   const handleClick = async () => {
     if (!query) return;

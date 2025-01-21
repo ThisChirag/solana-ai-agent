@@ -14,7 +14,7 @@ export const NavBar = () => {
             <Logo />
           </a>
           <div className="ml-auto items-center">
-            <Button
+            {/* <Button
               onClick={() =>
                 (location.href = `${
                   import.meta.env.VITE_BACKEND_URL
@@ -22,7 +22,7 @@ export const NavBar = () => {
               }
             >
               Sign In (Disabled)
-            </Button>
+            </Button> */}
           </div>
         </div>
       </div>

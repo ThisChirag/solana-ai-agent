@@ -5,7 +5,7 @@ import prisma from "../config";
 export const askQuestion = async (req: Request, res: Response): Promise<any> => {
   try {
     const { question } = req.body;
-    const username = "anonymous"; // Default username
+    const username = "Solana Developer"; // Default username
 
     // First, ensure anonymous user exists
     let user = await prisma.user.findUnique({
